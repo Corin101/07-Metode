@@ -4,10 +4,10 @@ namespace Vsite.CSharp
 {
     public class ZamjenaObjekata
     {
-        // TODO: Promijeniti metodu tako da se zamjena odrazi u pozivajućem kodu.
-        static void Zamijeni(string s1, string s2)
+        //  Promijeniti metodu tako da se zamjena odrazi u pozivajućem kodu.
+        static void Zamijeni(ref object s1, ref object s2)
         {
-            string temp = s2;
+            object temp = s2;
             s2 = s1;
             s1 = temp;
         }
@@ -18,21 +18,33 @@ namespace Vsite.CSharp
             Console.WriteLine("prvi = '{0}'", prvi);
             Console.WriteLine("drugi = '{0}'", drugi);
 
-            Zamijeni(prvi, drugi);
+            object prviString = prvi;
+            object drugiString = drugi;
+
+            Zamijeni(ref prviString, ref drugiString);
+
+            prvi = (string)prviString;
+            drugi = (string)drugiString;
 
             Console.WriteLine("Nakon metode Zamijeni:");
             Console.WriteLine("prvi = '{0}'", prvi);
             Console.WriteLine("drugi = '{0}'", drugi);
         }
 
-        public static void ZamjenaIntova(int prvi, int drugi)
+        public static void ZamjenaIntova( int prvi,  int drugi)
         {
             Console.WriteLine("Prije metode Zamijeni:");
             Console.WriteLine("prvi = '{0}'", prvi);
             Console.WriteLine("drugi = '{0}'", drugi);
 
-            // TODO: Promijeniti metodu Zamijeni tako da umjesto tipa string prima tip object i tako podržava zamjenu bilo kojeg tipa objekta. Dodati poziv te metode za 2 argumenta tipa int te provjeriti funkcionalnost.
+            //  Promijeniti metodu Zamijeni tako da umjesto tipa string prima tip object i tako podržava zamjenu bilo kojeg tipa objekta. Dodati poziv te metode za 2 argumenta tipa int te provjeriti funkcionalnost.
+            object prviInt = prvi;
+            object drugiInt = drugi;
 
+            Zamijeni(ref prviInt, ref drugiInt);
+
+            prvi = (int)prviInt;
+            drugi = (int)drugiInt;
 
             Console.WriteLine("Nakon metode Zamijeni:");
             Console.WriteLine("prvi = '{0}'", prvi);
