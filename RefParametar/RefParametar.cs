@@ -14,8 +14,8 @@ namespace Vsite.CSharp
             Console.ReadKey();
         }
 
-        // TODO: Dodati parametru metode modifikator ref tako da se argument x metodi prenosi po referenci te promijeniti poziv metode. Pokrenuti program i provjeriti ispis.
-        static void DodajDeset(int x)
+        //  Dodati parametru metode modifikator ref tako da se argument x metodi prenosi po referenci te promijeniti poziv metode. Pokrenuti program i provjeriti ispis.
+        static void DodajDeset(ref int x)
         {
             x += 10;
         }
@@ -23,7 +23,7 @@ namespace Vsite.CSharp
         public static int PozivMetodeDodajDeset(int broj)
         {
             Console.WriteLine("Prije metode DodajDeset: {0}", broj);
-            DodajDeset(broj);
+            DodajDeset(ref broj);
             Console.WriteLine("Nakon metode DodajDeset: {0}", broj);
             return broj;
         }
